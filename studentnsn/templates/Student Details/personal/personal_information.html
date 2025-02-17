@@ -115,6 +115,7 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Last Name*</label>
                         <input type="text" 
+                            id="date" 
                                name="last_name" 
                                required
                                value="{{ personal_info.last_name|default:'' }}"
@@ -564,5 +565,18 @@
                     }
                 });
             </script>
+     <script>
+        // Get the current date
+        const currentDate = new Date();
+        
+        // Subtract 10 years from the current date
+        currentDate.setFullYear(currentDate.getFullYear() - 18);
+        
+        // Format the date to YYYY-MM-DD
+        const formattedDate = currentDate.toISOString().split('T')[0];
+        
+        // Set the min attribute of the date input field
+        document.getElementById('date').setAttribute('max', formattedDate);
+     </script>
         </body>
         </html>
